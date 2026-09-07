@@ -1,0 +1,42 @@
+[project]
+name = "inverse-search"
+version = "0.1.0"
+description = "Adversarial legal research platform"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.30",
+    "pydantic>=2.8",
+    "pydantic-settings>=2.4",
+    "sqlalchemy>=2.0",
+    "alembic>=1.13",
+    "psycopg[binary]>=3.2",
+    "opensearch-py>=2.7",
+    "openai>=1.45",
+    "langgraph>=0.2",
+    "langchain-core>=0.3",
+    "httpx>=0.27",
+    "eyecite>=2.6",
+    "courts-db>=0.10",
+    "reporters-db>=3.2",
+    "python-dotenv>=1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3",
+    "pytest-asyncio>=0.24",
+    "ruff>=0.6",
+    "mypy>=1.11",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["apps*", "agents*", "ingestion*", "retrieval*", "ranking*", "knowledge*", "research*", "evaluation*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
